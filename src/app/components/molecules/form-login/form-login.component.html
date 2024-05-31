@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="toLogin()">
+  <pre class="d-none">
+    {{ form.value | json }}
+  </pre>
+  <div class="d-flex flex-column gap-2">
+    <login-input
+      [type]="'text'"
+      [placeholder]="'Usuario'"
+      [name]="'user'"
+      formControlName="user"
+      required
+    ></login-input>
+    <login-input
+      [type]="'password'"
+      [placeholder]="'Contraseña'"
+      [name]="'password'"
+      formControlName="password"
+      required
+    ></login-input>
+    <login-button
+      [text]="'Iniciar sesión'"
+      [type]="'submit'"
+      [disabled]="!form.valid"
+    />
+    <p *ngIf="error$ | async" class="text-danger fw-light fs-6">
+      Las credenciales son incorrectas
+    </p>
+  </div>
+</form>

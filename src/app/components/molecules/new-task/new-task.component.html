@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="createTask()">
+  <h1 class="fs-2 fw-bold">Nueva tarea</h1>
+  <div
+    class="w-100 d-flex flex-row gap-2 justify-content-start align-items-center py-3"
+  >
+    <input
+      class="w-75 p-2 form-control rounded"
+      type="text"
+      placeholder="Agrega una nueva tarea"
+      formControlName="title"
+    />
+    <button class="w-25 btn btn-primary" type="submit" [disabled]="!form.valid">
+      Añadir
+    </button>
+  </div>
+  <span *ngIf="form.controls['title'].invalid && form.controls['title'].value !== ''">
+    <small class="text-danger"
+      >El campo es requerido y solo acepta carácteres alfanuméricos.</small
+    >
+  </span>
+</form>

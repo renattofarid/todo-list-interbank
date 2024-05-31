@@ -1,0 +1,10 @@
+.container-tasks {
+    width: 100%;
+}
+
+/* en pantallas de md a más que sea el 50% */
+@media (min-width: 768px) {
+    .container-tasks {
+        width: 50%;
+    }
+}

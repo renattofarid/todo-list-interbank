@@ -1,0 +1,26 @@
+<header class="bg-white h-[96px] py-6 px-8 border-bottom border-success">
+  <div
+    class="d-flex align-items-center justify-content-end p-4 gap-2"
+    *ngIf="user$ | async as user; else loading"
+  >
+    <div
+      class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white fs-6 fw-semibold"
+      style="height: 36px; width: 36px"
+    >
+      {{ user.name | slice : 0 : 1 | uppercase
+      }}{{ user.name | slice : 1 : 2 | uppercase }}
+    </div>
+    <div class="text-dark fw-bold fs-6">
+      {{ user.name }}
+    </div>
+    <button
+      class="d-flex d-md-none btn btn-light border border-light text-danger fw-bold"
+      (click)="logout()"
+    >
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+  <ng-template #loading>
+    <p>Cargando usuario...</p>
+  </ng-template>
+</header>

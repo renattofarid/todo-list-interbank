@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-between align-items-center my-2">
+  <div class="d-flex align-items-center justify-content-center gap-2 py-2">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      [checked]="task.isFinished"
+      (change)="finishTask()"
+    />
+    <p class="fs-6 fw-thin m-0">{{ task.title }}</p>
+  </div>
+  <div class="d-flex align-items-center gap-1">
+    <button
+      *ngIf="!task.isFinished"
+      class="rounded border border-danger bg-danger"
+      (click)="deleteTask()"
+    >
+      <i class="fas fa-trash text-white"></i>
+    </button>
+  </div>
+</div>

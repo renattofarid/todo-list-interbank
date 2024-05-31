@@ -1,0 +1,41 @@
+<main class="d-flex w-100">
+  <!-- Sidebar -->
+  <div
+    class="bg-white text-white d-none d-md-flex flex-column min-vh-100 py-4 px-4 justify-content-between gap-3 border-end border-success"
+    style="min-width: 250px"
+  >
+    <div class="w-100 d-flex justify-content-center">
+      <img src="/img/logo.svg" alt="interbank-logo" class="h-8" />
+    </div>
+
+    <div class="flex-grow-1 w-100 py-5">
+      <div class="d-flex flex-column">
+        <a
+          class="d-flex align-items-center gap-2 py-2 px-3 rounded text-sm text-white fw-bold btn btn-success"
+          href="/tasks"
+        >
+          <i class="fas fa-tasks"></i>
+          <h1 class="fw-semibold fs-5 mb-0">Tareas</h1>
+        </a>
+      </div>
+    </div>
+
+    <button
+      class="py-3 px-4 rounded border border-danger btn btn-light bg-white text-danger fw-bold transition duration-500 ease-in-out"
+      (click)="logout()"
+    >
+      Salir
+    </button>
+  </div>
+
+  <!-- Content Principal -->
+  <div class="flex-grow-1 d-flex flex-column min-vh-100 overflow-hidden bg-primary">
+    <!-- Navbar -->
+    <navbar></navbar>
+    <main class="flex-grow-1 overflow-hidden overflow-y-auto bg-light pt-4">
+      <div class="mx-3 rounded-2xl bg-white h-auto">
+        <ng-content></ng-content>
+      </div>
+    </main>
+  </div>
+</main>

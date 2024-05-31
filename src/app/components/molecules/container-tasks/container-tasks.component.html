@@ -1,0 +1,10 @@
+<div *ngIf="tasks$ | async as tasks; else loading">
+  <h1 class="text-center fs-5 fw-semibold">
+    Tareas:
+    <span class="fw-bold">{{ tasks.length }}</span>
+  </h1>
+  <item-task *ngFor="let task of tasks" [task]="task"></item-task>
+</div>
+<ng-template #loading>
+  <p>Cargando tareas...</p>
+</ng-template>
